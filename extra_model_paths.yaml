@@ -1,21 +1,9 @@
 # Direct Network Volume Paths - ComfyUI will scan these directly
 # This bypasses any symlink issues and ensures models are found
-
-# Primary path (our prepare_volume.sh structure)
 runpod_volume:
     base_path: /runpod-volume/models
     diffusion_models: diffusion_models
     unet: diffusion_models
-    loras: loras
-    vae: vae
-    clip: clip
-    text_encoders: text_encoders
-
-# Alternative path (existing runpod-slim ComfyUI installation)
-runpod_slim:
-    base_path: /runpod-volume/runpod-slim/ComfyUI/models
-    diffusion_models: diffusion_models
-    unet: unet
     loras: loras
     vae: vae
     clip: clip
