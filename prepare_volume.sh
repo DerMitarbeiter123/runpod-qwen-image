@@ -57,11 +57,7 @@ cd /workspace/models/loras
 # Civitai Model ID 2335968 (1GIRL_QWEN_V1)
 if [ ! -f "1GIRL_QWEN_V1.safetensors" ]; then
     echo "⬇️ Downloading 1GIRL_QWEN_V1 LoRA (Civitai ID 2335968)..."
-    wget "https://civitai.com/api/download/models/2335968?type=Model&format=SafeTensor&token=1f8ccf1c625fbccb31b886935bf663b8" --content-disposition
-    # Rename to expected filename if different
-    if [ -f "*.safetensors" ] && [ ! -f "1GIRL_QWEN_V1.safetensors" ]; then
-        mv *.safetensors 1GIRL_QWEN_V1.safetensors
-    fi
+    wget -O 1GIRL_QWEN_V1.safetensors "https://civitai.com/api/download/models/2335968?type=Model&format=SafeTensor&token=1f8ccf1c625fbccb31b886935bf663b8"
 else
     echo "✅ 1GIRL_QWEN_V1.safetensors already exists, skipping..."
 fi
@@ -69,14 +65,7 @@ fi
 # Civitai Model ID 2270374 (samsungcam)
 if [ ! -f "samsungcam.safetensors" ]; then
     echo "⬇️ Downloading samsungcam LoRA (Civitai ID 2270374)..."
-    wget "https://civitai.com/api/download/models/2270374?type=Model&format=SafeTensor&token=00d790b1d7a9934acb89ef729d04c75a" --content-disposition
-    # Rename to expected filename if different  
-    for f in *.safetensors; do
-        if [ "$f" != "1GIRL_QWEN_V1.safetensors" ] && [ "$f" != "samsungcam.safetensors" ]; then
-            mv "$f" samsungcam.safetensors
-            break
-        fi
-    done
+    wget -O samsungcam.safetensors "https://civitai.com/api/download/models/2270374?type=Model&format=SafeTensor&token=00d790b1d7a9934acb89ef729d04c75a"
 else
     echo "✅ samsungcam.safetensors already exists, skipping..."
 fi
